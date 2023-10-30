@@ -67,6 +67,49 @@ object AppTheme{
                     ),
                     color = Color.White
                 )
+        val regular_16_bold
+            @Composable
+            get() =
+                TextStyle(
+                    fontFamily = fontFamily,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 16.sp ,
+                    platformStyle = PlatformTextStyle(includeFontPadding = false),
+                    lineHeightStyle = LineHeightStyle(
+                        LineHeightStyle.Alignment.Proportional,
+                        LineHeightStyle.Trim.None
+                    ),
+                    color = Color.White,
+                )
+
+        val regular_16
+            @Composable
+            get() =
+                TextStyle(
+                    fontFamily = fontFamily,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 16.sp ,
+                    platformStyle = PlatformTextStyle(includeFontPadding = false),
+                    lineHeightStyle = LineHeightStyle(
+                        LineHeightStyle.Alignment.Proportional,
+                        LineHeightStyle.Trim.None
+                    ),
+                    color = Color.White
+                )
+        val regular_10
+            @Composable
+            get() =
+                TextStyle(
+                    fontFamily = fontFamily,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 10.sp ,
+                    platformStyle = PlatformTextStyle(includeFontPadding = false),
+                    lineHeightStyle = LineHeightStyle(
+                        LineHeightStyle.Alignment.Proportional,
+                        LineHeightStyle.Trim.None
+                    ),
+                    color = Color.White
+                )
 
     }
 }

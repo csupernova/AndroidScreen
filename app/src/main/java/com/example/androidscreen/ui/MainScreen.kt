@@ -7,7 +7,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,13 +17,16 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -70,6 +75,11 @@ fun DotaScreen(){
     val context = LocalContext.current
     val LazyListState = rememberLazyListState()
 
+    val comments = listOf(
+        Pair(R.drawable.avatar1, "Auguste Conte"),
+        Pair(R.drawable.avatar2, "Jang Marcelino")
+    )
+
     LazyColumn(
         state = LazyListState,
         modifier = Modifier
@@ -90,8 +100,47 @@ fun DotaScreen(){
             )
         }
         item{
+            Text(
+                text = stringResource(id = R.string.revrat),
+                style = AppTheme.TextStyle.regular_16_bold,
+                color = Color.White,
+                modifier = Modifier
+                    .padding(
+                        start=24.dp,
+                        end=24.dp,
+                        bottom=12.dp,
+                        top=20.dp
+                        )
+
+            )
+        }
+
+        itemsIndexed(
+            comments
+        ){index, item ->
+            CommentBlock(
+                item,
+                Modifier.padding(
+                    start=24.dp,
+                    end=24.dp,
+                    top=16.dp
+                ))
+            if(index < comments.lastIndex){
+                Divider(
+                    color = Color(0xFF1A1F29),
+                    thickness=1.dp,
+                    modifier = Modifier
+                        .padding(
+                            bottom = 10.dp,
+                            top=12.dp
+                        )
+                )
+            }
+        }
+
+        item{
             InstallButton(
-                text = "Install",
+                text = stringResource(id = R.string.buttonInstall),
                 onClick = {
                     Toast.makeText(context, "CLICKED", Toast.LENGTH_LONG).show()
                 }
@@ -220,9 +269,51 @@ fun InstallButton(
                         top=10.dp,
                         bottom=10.dp)
             )
-
-            
         }
     }
+}
 
+@Composable
+fun CommentBlock(
+    item: Pair<Int, String>,
+    modifier: Modifier
+) {
+    Column(modifier = modifier) {
+        Row(
+        ) {
+            Box() {
+                Image(
+                    painter = painterResource(id = item.first),
+                    contentDescription = "AvatarProfile",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .size(36.dp)
+                        .clip(CircleShape)
+                )
+            }
+            Column {
+                Text(
+                    text = item.second,
+                    style = AppTheme.TextStyle.regular_16,
+                    color = Color.White,
+                    modifier = Modifier
+                        .padding(start=15.dp, bottom = 5.dp)
+                )
+                Text(
+                    text = "Febuary, 14, 2019",
+                    style = AppTheme.TextStyle.regular_10,
+                    color = Color.Gray,
+                    modifier = Modifier
+                        .padding(start=15.dp)
+                )
+            }
+        }
+        Text(
+            text = stringResource(id = R.string.comment),
+            style = AppTheme.TextStyle.regular_12,
+            modifier = Modifier
+                .padding(top=16.dp),
+            color = Color.Gray
+        )
+    }
 }
