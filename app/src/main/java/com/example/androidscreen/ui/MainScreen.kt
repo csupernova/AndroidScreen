@@ -6,6 +6,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,10 +14,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.pager.HorizontalPager
@@ -24,9 +27,12 @@ import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -115,9 +121,17 @@ fun DotaScreen(){
             )
         }
 
-        itemsIndexed(
-            comments
-        ){index, item ->
+        item{
+            RatingBlock(
+                rating = 4.9f,
+                reviewCount = "70M",
+                modifier = Modifier.padding(
+                    start=24.dp, end =24.dp, bottom = 16.dp
+                )
+            )
+        }
+
+        itemsIndexed(comments){index, item ->
             CommentBlock(
                 item,
                 Modifier.padding(
@@ -150,6 +164,7 @@ fun DotaScreen(){
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DotaScreenHeader(
     modifier: Modifier = Modifier,
@@ -159,9 +174,68 @@ fun DotaScreenHeader(
         contentDescription = "DotaHeader",
         contentScale = ContentScale.Crop
     )
-    DotaLogo()
+    Column {
+        Row() {
+            Box() {
+                DotaLogo()
+            }
+            Column {
+                Text(
+                    text = stringResource(id = R.string.dotamain),
+                    style = AppTheme.TextStyle.regular_20_bold,
+                    modifier = Modifier
+                        .padding(start = 40.dp, top = 10.dp)
+                )
+                Row {
+                    Image(
+                        painter = painterResource(id = R.drawable.fivestars),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .padding(start = 40.dp, top = 10.dp)
+                    )
+                    Text(
+                        text = "70M",
+                        style = AppTheme.TextStyle.regular_12,
+                        color = Color.DarkGray,
+                        modifier = Modifier
+                            .padding(start = 8.dp, top = 10.dp)
+                    )
+                }
+            }
+        }
+        Box(
+            modifier = Modifier
+                .padding(start = 25.dp,)
+                .offset(y = -(15).dp)
 
+        ){
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+            ) {
+                itemsIndexed(listOf("MOBA", "MULTIPLAYER", "STRATEGY")) { index, item ->
+                    AssistChip(
+                        border = null,
+                        modifier = Modifier
+                            .clip(shape = RoundedCornerShape(size = 100.dp))
+                            .height(22.dp),
+                        colors = AssistChipDefaults.assistChipColors(
+                            containerColor = Color(0x3D44A9F4),
+                        ),
+                        onClick = {},
+                        label = {
+                            Text(
+                                text = item,
+                                style = AppTheme.TextStyle.regular_12,
+                                color = Color(0xFF44A9F4)
+                            )
+                        },
+                    )
+                }
+            }
+        }
+    }
 }
+
 
 @Composable
 fun DotaLogo(){
@@ -182,8 +256,6 @@ fun DotaLogo(){
             modifier = Modifier
                 .padding(all=17.dp)
         )
-
-
     }
 
 }
@@ -269,6 +341,37 @@ fun InstallButton(
                         top=10.dp,
                         bottom=10.dp)
             )
+        }
+    }
+}
+
+@Composable
+fun RatingBlock(
+    rating: Float,
+    reviewCount:String,
+    modifier:Modifier
+){
+    Row(modifier = modifier){
+        Text(
+            text = "$rating",
+            style = AppTheme.TextStyle.bold_48,
+            color = Color.White
+        )
+        Column(){
+            Image(
+                painter = painterResource(id = R.drawable.fourhalfstars),
+                contentDescription = null,
+                modifier = Modifier.padding(
+                    start=15.dp, top = 17.dp)
+                )
+            Text(
+                text="$reviewCount Reviews",
+                style = AppTheme.TextStyle.regular_12,
+                color = Color.Gray,
+                modifier = Modifier.padding(
+                    start = 15.dp, top=10.dp)
+            )
+
         }
     }
 }

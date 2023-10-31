@@ -111,5 +111,20 @@ object AppTheme{
                     color = Color.White
                 )
 
+        val bold_40
+            @Composable
+            get() =
+                TextStyle(
+                    fontFamily = fontFamily,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 48.sp ,
+                    platformStyle = PlatformTextStyle(includeFontPadding = false),
+                    lineHeightStyle = LineHeightStyle(
+                        LineHeightStyle.Alignment.Proportional,
+                        LineHeightStyle.Trim.None
+                    ),
+                    color = Color.White
+                )
+
     }
 }
