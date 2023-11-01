@@ -44,42 +44,51 @@ object AppTheme{
             get() =
                 TextStyle(
                     fontFamily = fontFamily,
-                    fontWeight = FontWeight.Normal,
                     fontSize = 12.sp ,
-                    platformStyle = PlatformTextStyle(includeFontPadding = false),
-                    lineHeightStyle = LineHeightStyle(
-                        LineHeightStyle.Alignment.Proportional,
-                        LineHeightStyle.Trim.None
-                    ),
-                    color = Color.White
+                    fontWeight = FontWeight(400),
+                    color = Color(0xB2EEF2FB),
+                    lineHeight = 19.sp,
                 )
+
+        val regular_12_20
+        @Composable
+        get() =
+            TextStyle(
+                fontSize = 12.sp,
+                lineHeight = 20.sp,
+                fontFamily = fontFamily,
+                fontWeight = FontWeight(400),
+                color = Color(0xFFA8ADB7),
+                letterSpacing = 0.5.sp,
+            )
+
         val regular_20_bold
             @Composable
             get() =
                 TextStyle(
                     fontFamily = fontFamily,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight(700),
                     fontSize = 20.sp ,
                     platformStyle = PlatformTextStyle(includeFontPadding = false),
                     lineHeightStyle = LineHeightStyle(
                         LineHeightStyle.Alignment.Proportional,
                         LineHeightStyle.Trim.None
                     ),
-                    color = Color.White
+                    color = Color.White,
+                    letterSpacing = 0.5.sp,
                 )
         val regular_16_bold
             @Composable
             get() =
                 TextStyle(
                     fontFamily = fontFamily,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight(700),
                     fontSize = 16.sp ,
                     platformStyle = PlatformTextStyle(includeFontPadding = false),
                     lineHeightStyle = LineHeightStyle(
                         LineHeightStyle.Alignment.Proportional,
                         LineHeightStyle.Trim.None
                     ),
-                    color = Color.White,
                 )
 
         val regular_16
@@ -87,21 +96,22 @@ object AppTheme{
             get() =
                 TextStyle(
                     fontFamily = fontFamily,
-                    fontWeight = FontWeight.Normal,
+                    fontWeight = FontWeight(400),
                     fontSize = 16.sp ,
                     platformStyle = PlatformTextStyle(includeFontPadding = false),
                     lineHeightStyle = LineHeightStyle(
                         LineHeightStyle.Alignment.Proportional,
                         LineHeightStyle.Trim.None
                     ),
-                    color = Color.White
+                    color = Color.White,
+                    letterSpacing = 0.5.sp
                 )
         val regular_10
             @Composable
             get() =
                 TextStyle(
                     fontFamily = fontFamily,
-                    fontWeight = FontWeight.Normal,
+                    fontWeight = FontWeight(500),
                     fontSize = 10.sp ,
                     platformStyle = PlatformTextStyle(includeFontPadding = false),
                     lineHeightStyle = LineHeightStyle(

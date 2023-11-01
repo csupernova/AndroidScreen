@@ -41,6 +41,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
@@ -100,16 +102,13 @@ fun DotaScreen(){
         item{
             VideoPreviewRow(listOf(
                 R.drawable.dota2_screenshot1,
-                R.drawable.dota2_screenshot2
-            ),
-                PaddingValues(start=24.dp, end=24.dp)
-            )
+                R.drawable.dota2_screenshot2))
         }
         item{
             Text(
                 text = stringResource(id = R.string.revrat),
                 style = AppTheme.TextStyle.regular_16_bold,
-                color = Color.White,
+                color = Color(0xFFEEF2FB),
                 modifier = Modifier
                     .padding(
                         start=24.dp,
@@ -172,7 +171,8 @@ fun DotaScreenHeader(
     Image(
         painter = painterResource(id = R.drawable.dota2mainscreen),
         contentDescription = "DotaHeader",
-        contentScale = ContentScale.Crop
+        contentScale = ContentScale.Crop,
+        modifier = Modifier.fillMaxWidth()
     )
     Column {
         Row() {
@@ -225,8 +225,8 @@ fun DotaScreenHeader(
                         label = {
                             Text(
                                 text = item,
-                                style = AppTheme.TextStyle.regular_12,
-                                color = Color(0xFF44A9F4)
+                                style = AppTheme.TextStyle.regular_10,
+                                color = Color(0xFF41A0E7),
                             )
                         },
                     )
@@ -265,13 +265,13 @@ fun DescriptionDota(){
     Box(){
         Text(
             text = stringResource(id = R.string.dota_description),
-            color = Color(0xFFF2FBB2),
             modifier = Modifier
                 .padding(
                     start = 24.dp,
                     end = 24.dp,
                     top = 14.dp,
-                    bottom=14.dp)
+                    bottom=14.dp),
+            style = AppTheme.TextStyle.regular_12
         )
     }
 }
@@ -280,20 +280,19 @@ fun DescriptionDota(){
 @Composable
 fun VideoPreviewRow(
     previewResList: List<Int>,
-    contentPadding: PaddingValues
 ) {
     val screenWidth = LocalConfiguration.current.screenWidthDp
     val pagerState = rememberPagerState{previewResList.size}
     val scope = rememberCoroutineScope()
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.height(160.dp)
     ) {
         HorizontalPager(
             state = pagerState,
             key = {previewResList[it]},
             pageSize = PageSize.Fill,
             contentPadding = PaddingValues(start = 24.dp, end = 24.dp),
-            pageSpacing = -(50).dp
+            pageSpacing = -(50).dp,
         ) {
             index ->
             Image(
@@ -303,7 +302,11 @@ fun VideoPreviewRow(
                 modifier = Modifier
                     .size(270.dp)
                     .aspectRatio(16f / 9f)
-                    .clip(RoundedCornerShape(15.dp))
+                    .clip(RoundedCornerShape(15.dp)),
+                colorFilter =
+                ColorFilter.colorMatrix(ColorMatrix()
+                    .apply{setToScale(
+                        0.6f,0.6f,0.6f,1f)}),
             )
         }
 
@@ -404,7 +407,7 @@ fun CommentBlock(
                 )
                 Text(
                     text = "Febuary, 14, 2019",
-                    style = AppTheme.TextStyle.regular_10,
+                    style = AppTheme.TextStyle.regular_12_20,
                     color = Color.Gray,
                     modifier = Modifier
                         .padding(start=15.dp)
@@ -413,7 +416,7 @@ fun CommentBlock(
         }
         Text(
             text = stringResource(id = R.string.comment),
-            style = AppTheme.TextStyle.regular_12,
+            style = AppTheme.TextStyle.regular_12_20,
             modifier = Modifier
                 .padding(top=16.dp),
             color = Color.Gray
