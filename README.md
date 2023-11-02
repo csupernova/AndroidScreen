@@ -4,12 +4,9 @@
 ### **Скриншоты**
 <table>
     <tr>
-        <td>![image1](https://github.com/csupernova/AndroidScreen/assets/84630611/36e35adf-2a8e-426e-89df-9b4394f44a90)
-</td>
-        <td>![image2](https://github.com/csupernova/AndroidScreen/assets/84630611/39bdb926-e655-41ae-b365-7d67be7afa54)
-</td>
-        <td>![image3](https://github.com/csupernova/AndroidScreen/assets/84630611/c06617e9-8954-4523-80bd-817da98bf62e)
-</td>
+        <td><img src="https://github.com/csupernova/AndroidScreen/assets/84630611/36e35adf-2a8e-426e-89df-9b4394f44a90"></td>
+        <td><img src="https://github.com/csupernova/AndroidScreen/assets/84630611/39bdb926-e655-41ae-b365-7d67be7afa54"></td>
+        <td><img src="https://github.com/csupernova/AndroidScreen/assets/84630611/c06617e9-8954-4523-80bd-817da98bf62e"></td>
     </tr>
 </table>
 
