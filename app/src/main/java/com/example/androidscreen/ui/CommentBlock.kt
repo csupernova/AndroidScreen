@@ -24,9 +24,8 @@ fun CommentBlock(
     modifier: Modifier
 ) {
     Column(modifier = modifier) {
-        Row(
-        ) {
-            Box() {
+        Row{
+            Box{
                 Image(
                     painter = painterResource(id = item.first),
                     contentDescription = "AvatarProfile",

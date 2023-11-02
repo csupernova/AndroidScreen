@@ -1,4 +1,4 @@
-package com.example.androidscreen.ui.theme
+package com.example.androidscreen.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -12,17 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androidscreen.R
-import com.example.androidscreen.ui.CommentBlock
-import com.example.androidscreen.ui.DescriptionDota
-import com.example.androidscreen.ui.DotaScreenHeader
-import com.example.androidscreen.ui.InstallButton
-import com.example.androidscreen.ui.RatingBlock
-import com.example.androidscreen.ui.VideoPreviewRow
+import com.example.androidscreen.ui.theme.AppTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Preview
@@ -52,8 +46,7 @@ private fun ApplySystemBarColors(){
 @Composable
 fun DotaScreen(){
 
-    val context = LocalContext.current
-    val LazyListState = rememberLazyListState()
+    val lazyListState = rememberLazyListState()
 
     val comments = listOf(
         Pair(R.drawable.avatar1, "Auguste Conte"),
@@ -61,7 +54,7 @@ fun DotaScreen(){
     )
 
     LazyColumn(
-        state = LazyListState,
+        state = lazyListState,
         modifier = Modifier
             .fillMaxSize()
     ){

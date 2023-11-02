@@ -12,7 +12,7 @@ import com.example.androidscreen.ui.theme.AppTheme
 
 @Composable
 fun DescriptionDota(){
-    Box(){
+    Box{
         Text(
             text = stringResource(id = R.string.dota_description),
             modifier = Modifier

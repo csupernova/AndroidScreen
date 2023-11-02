@@ -27,10 +27,10 @@ import com.example.androidscreen.ui.theme.AppTheme
 fun InstallButton(
     text: String,
 ){
-    Box(){
+    Box{
         var installed by remember{ mutableStateOf(false) }
         var buttonState by remember{ mutableStateOf(false) }
-        val scale by animateFloatAsState(if(buttonState) 0.85f else 1f)
+        val scale by animateFloatAsState( if(buttonState) 0.85f else 1f)
         Button(
             onClick = {installed = !installed},
             modifier = Modifier

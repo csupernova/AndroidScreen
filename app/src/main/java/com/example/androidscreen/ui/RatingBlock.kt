@@ -25,7 +25,7 @@ fun RatingBlock(
             style = AppTheme.TextStyle.bold_48,
             color = Color.White
         )
-        Column(){
+        Column{
             Image(
                 painter = painterResource(id = R.drawable.fourhalfstars),
                 contentDescription = null,

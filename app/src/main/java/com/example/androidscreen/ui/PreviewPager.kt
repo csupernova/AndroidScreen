@@ -12,13 +12,11 @@ import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
@@ -27,9 +25,7 @@ import androidx.compose.ui.unit.dp
 fun VideoPreviewRow(
     previewResList: List<Int>,
 ) {
-    val screenWidth = LocalConfiguration.current.screenWidthDp
     val pagerState = rememberPagerState{previewResList.size}
-    val scope = rememberCoroutineScope()
     Box(
         modifier = Modifier.height(160.dp)
     ) {

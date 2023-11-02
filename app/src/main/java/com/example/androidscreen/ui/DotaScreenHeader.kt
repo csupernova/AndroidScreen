@@ -29,7 +29,6 @@ import com.example.androidscreen.ui.theme.AppTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DotaScreenHeader(
-    modifier: Modifier = Modifier,
 ){
     Image(
         painter = painterResource(id = R.drawable.dota2mainscreen),
@@ -38,8 +37,8 @@ fun DotaScreenHeader(
         modifier = Modifier.fillMaxWidth()
     )
     Column {
-        Row() {
-            Box() {
+        Row{
+            Box{
                 DotaLogo()
             }
             Column {
@@ -69,14 +68,14 @@ fun DotaScreenHeader(
         }
         Box(
             modifier = Modifier
-                .padding(start = 25.dp,)
+                .padding(start = 25.dp)
                 .offset(y = -(15).dp)
 
         ){
             LazyRow(
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
             ) {
-                itemsIndexed(listOf("MOBA", "MULTIPLAYER", "STRATEGY")) { index, item ->
+                itemsIndexed(listOf("MOBA", "MULTIPLAYER", "STRATEGY")) { _, item ->
                     AssistChip(
                         border = null,
                         modifier = Modifier
