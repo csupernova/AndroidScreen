@@ -79,8 +79,7 @@ fun VideoPreviewRow(
                             .clip(CircleShape)
                             .blur(40.dp),
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.Gray,
-                            contentColor = Color.Black
+                            containerColor = Color.Gray.copy(alpha = 0.5f)
                         ),
                     ) {}
                     Image(
