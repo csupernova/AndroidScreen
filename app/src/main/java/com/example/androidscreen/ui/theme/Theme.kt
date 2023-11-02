@@ -12,15 +12,56 @@ object AppTheme{
 
     object BgColors{
         val mainBgColor
+            @Composable
             get() =
                 Color(0xFF050B18)
+
+        val filterBgColor
+            @Composable
+            get() =
+                Color(0x3D44A9F4)
+
+        val buttonBgColor
+            @Composable
+            get() = Color(0xFFF4D144)
+
     }
 
-    object TextColors{
-        val message
+    object TextColor{
+        val descColor
             @Composable
             get()  =
-                Color.Blue
+                Color(0xB2EEF2FB)
+
+        val commentColor
+            @Composable
+            get()  =
+                Color(0xFFA8ADB7)
+
+        val whiteColor
+            @Composable
+            get()  =
+                Color.White
+
+        val darkGrayColor
+            @Composable
+            get() =
+                Color.DarkGray
+
+        val dateColor
+            @Composable
+            get() =
+                Color(0x66FFFFFF)
+
+        val filterColor
+            @Composable
+            get() =
+                Color(0xFF41A0E7)
+
+        val buttonTextColor
+            @Composable
+            get() =
+                Color(0xFF050B18)
 
     }
 
@@ -46,7 +87,6 @@ object AppTheme{
                     fontFamily = fontFamily,
                     fontSize = 12.sp ,
                     fontWeight = FontWeight(400),
-                    color = Color(0xB2EEF2FB),
                     lineHeight = 19.sp,
                 )
 
@@ -58,7 +98,6 @@ object AppTheme{
                 lineHeight = 20.sp,
                 fontFamily = fontFamily,
                 fontWeight = FontWeight(400),
-                color = Color(0xFFA8ADB7),
                 letterSpacing = 0.5.sp,
             )
 
@@ -74,8 +113,22 @@ object AppTheme{
                         LineHeightStyle.Alignment.Proportional,
                         LineHeightStyle.Trim.None
                     ),
-                    color = Color.White,
                     letterSpacing = 0.5.sp,
+                )
+
+        val regular_20_bold_0_6
+            @Composable
+            get() =
+                TextStyle(
+                    fontFamily = fontFamily,
+                    fontWeight = FontWeight(700),
+                    fontSize = 20.sp ,
+                    platformStyle = PlatformTextStyle(includeFontPadding = false),
+                    lineHeightStyle = LineHeightStyle(
+                        LineHeightStyle.Alignment.Proportional,
+                        LineHeightStyle.Trim.None
+                    ),
+                    letterSpacing = 0.6.sp,
                 )
         val regular_16_bold
             @Composable
@@ -103,7 +156,6 @@ object AppTheme{
                         LineHeightStyle.Alignment.Proportional,
                         LineHeightStyle.Trim.None
                     ),
-                    color = Color.White,
                     letterSpacing = 0.5.sp
                 )
         val regular_10
@@ -118,7 +170,6 @@ object AppTheme{
                         LineHeightStyle.Alignment.Proportional,
                         LineHeightStyle.Trim.None
                     ),
-                    color = Color.White
                 )
     }
 }

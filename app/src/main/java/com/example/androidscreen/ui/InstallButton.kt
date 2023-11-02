@@ -58,14 +58,14 @@ fun InstallButton(
                                           }
                 },
             colors = ButtonDefaults.buttonColors(
-                containerColor = if(!installed) Color(0xFFF4D144) else Color.Red,
+                containerColor = if(!installed) AppTheme.BgColors.buttonBgColor else Color.Red,
                 contentColor = Color.Black
             )
         ) {
             Text(
                 if(!installed) text else "Un${text}",
-                style = AppTheme.TextStyle.regular_20_bold,
-                color = Color.Black,
+                style = AppTheme.TextStyle.regular_20_bold_0_6,
+                color = AppTheme.TextColor.buttonTextColor,
                 modifier = Modifier
                     .padding(
                         top=10.dp,

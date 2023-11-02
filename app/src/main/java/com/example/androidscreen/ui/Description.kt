@@ -21,7 +21,8 @@ fun DescriptionDota(){
                     end = 24.dp,
                     top = 14.dp,
                     bottom=14.dp),
-            style = AppTheme.TextStyle.regular_12
+            style = AppTheme.TextStyle.regular_12,
+            color = AppTheme.TextColor.descColor
         )
     }
 }

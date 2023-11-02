@@ -11,7 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -41,14 +40,14 @@ fun CommentBlock(
                 Text(
                     text = item.second,
                     style = AppTheme.TextStyle.regular_16,
-                    color = Color.White,
+                    color = AppTheme.TextColor.whiteColor,
                     modifier = Modifier
                         .padding(start=15.dp, bottom = 5.dp)
                 )
                 Text(
                     text = "Febuary, 14, 2019",
                     style = AppTheme.TextStyle.regular_12_20,
-                    color = Color.Gray,
+                    color = AppTheme.TextColor.dateColor,
                     modifier = Modifier
                         .padding(start=15.dp)
                 )
@@ -59,7 +58,7 @@ fun CommentBlock(
             style = AppTheme.TextStyle.regular_12_20,
             modifier = Modifier
                 .padding(top=16.dp),
-            color = Color.Gray
+            color = AppTheme.TextColor.commentColor
         )
     }
 }

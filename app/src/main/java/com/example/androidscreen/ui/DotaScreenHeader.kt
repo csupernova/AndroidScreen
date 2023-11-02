@@ -19,7 +19,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -47,6 +46,7 @@ fun DotaScreenHeader(
                 Text(
                     text = stringResource(id = R.string.dotamain),
                     style = AppTheme.TextStyle.regular_20_bold,
+                    color = AppTheme.TextColor.whiteColor,
                     modifier = Modifier
                         .padding(start = 40.dp, top = 10.dp)
                 )
@@ -60,7 +60,7 @@ fun DotaScreenHeader(
                     Text(
                         text = "70M",
                         style = AppTheme.TextStyle.regular_12,
-                        color = Color.DarkGray,
+                        color = AppTheme.TextColor.darkGrayColor,
                         modifier = Modifier
                             .padding(start = 8.dp, top = 10.dp)
                     )
@@ -83,14 +83,14 @@ fun DotaScreenHeader(
                             .clip(shape = RoundedCornerShape(size = 100.dp))
                             .height(22.dp),
                         colors = AssistChipDefaults.assistChipColors(
-                            containerColor = Color(0x3D44A9F4),
+                            containerColor = AppTheme.BgColors.filterBgColor,
                         ),
                         onClick = {},
                         label = {
                             Text(
                                 text = item,
                                 style = AppTheme.TextStyle.regular_10,
-                                color = Color(0xFF41A0E7),
+                                color = AppTheme.TextColor.filterColor,
                             )
                         },
                     )
