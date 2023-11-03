@@ -21,8 +21,8 @@ import com.example.androidscreen.R
 fun DotaLogo(){
     Box(
         modifier = Modifier
-            .size(100.dp)
-            .offset(x = 20.dp, y = (-35).dp)
+            .size(90.dp)
+            .offset(x = 20.dp, y = (-20).dp)
             .clip(RoundedCornerShape(15.dp))
             .border(
                 BorderStroke(1.dp, Color(0xFF1F2430)),

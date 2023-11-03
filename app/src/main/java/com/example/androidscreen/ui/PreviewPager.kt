@@ -93,6 +93,5 @@ fun VideoPreviewRow(
                 }
             }
         }
-
     }
 }

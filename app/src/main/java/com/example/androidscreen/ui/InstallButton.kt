@@ -20,8 +20,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androidscreen.ui.theme.AppTheme
+
 
 @Composable
 fun InstallButton(
@@ -42,20 +44,20 @@ fun InstallButton(
                     bottom = 40.dp
                 )
                 .clip(RoundedCornerShape(1.dp))
-                .graphicsLayer{
+                .graphicsLayer {
                     scaleX = scale
-                    scaleY = scale}
-                .pointerInput(buttonState){
-                                          awaitPointerEventScope {
-                                              buttonState = if(buttonState) {
-                                                  waitForUpOrCancellation()
-                                                  false
-                                              }
-                                              else{
-                                                  awaitFirstDown(false)
-                                                  true
-                                              }
-                                          }
+                    scaleY = scale
+                }
+                .pointerInput(buttonState) {
+                    awaitPointerEventScope {
+                        buttonState = if (buttonState) {
+                            waitForUpOrCancellation()
+                            false
+                        } else {
+                            awaitFirstDown(false)
+                            true
+                        }
+                    }
                 },
             colors = ButtonDefaults.buttonColors(
                 containerColor = if(!installed) AppTheme.BgColors.buttonBgColor else Color.Red,
@@ -73,4 +75,10 @@ fun InstallButton(
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun PreviewInstallButton(){
+    InstallButton(text = "Install")
 }

@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androidscreen.R
 import com.example.androidscreen.ui.theme.AppTheme
@@ -38,7 +39,9 @@ fun DotaScreenHeader(
     )
     Column {
         Row{
-            Box{
+            Box(
+                modifier = Modifier.padding(bottom=10.dp)
+            ){
                 DotaLogo()
             }
             Column {
@@ -61,7 +64,7 @@ fun DotaScreenHeader(
                         style = AppTheme.TextStyle.regular_12,
                         color = AppTheme.TextColor.darkGrayColor,
                         modifier = Modifier
-                            .padding(start = 8.dp, top = 10.dp)
+                            .padding(start = 8.dp, top = 8.dp)
                     )
                 }
             }
@@ -97,4 +100,10 @@ fun DotaScreenHeader(
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun PreviewHeader(){
+    DotaScreen()
 }
